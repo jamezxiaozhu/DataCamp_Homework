@@ -79,9 +79,22 @@ with open(csvpath, newline='') as csvfile:
         str(candidate_list_unique[2])+ ": "+ "{:.3%}".format(candidate_2_votes_percent) + " ("+ str(candidate_2_votes) +")","\n",
         str(candidate_list_unique[3])+ ": "+ "{:.3%}".format(candidate_3_votes_percent) + " ("+ str(candidate_3_votes) +")","\n",
         "-------------------------","\n",
-        "Winner: " + winner_name + "\n",
-         "-------------------------"
+        "Winner: " + winner_name
     ) 
+    with open("output.txt", "a") as f:
+        print(
+            "Election Results", "\n",
+            "-------------------------","\n",
+            "Total Votes: " + str(total_votes),"\n",
+            "-------------------------","\n",
+            str(candidate_list_unique[0])+ ": "+ "{:.3%}".format(candidate_0_votes_percent) + " ("+ str(candidate_0_votes) +")","\n",
+            str(candidate_list_unique[1])+ ": "+ "{:.3%}".format(candidate_1_votes_percent) + " ("+ str(candidate_1_votes) +")","\n",
+            str(candidate_list_unique[2])+ ": "+ "{:.3%}".format(candidate_2_votes_percent) + " ("+ str(candidate_2_votes) +")","\n",
+            str(candidate_list_unique[3])+ ": "+ "{:.3%}".format(candidate_3_votes_percent) + " ("+ str(candidate_3_votes) +")","\n",
+            "-------------------------","\n",
+            "Winner: " + winner_name,
+            file = f
+        )         
 # Sample Results:
 # Election Results
 # -------------------------

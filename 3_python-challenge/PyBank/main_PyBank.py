@@ -46,13 +46,15 @@ with open(csvpath, newline='') as csvfile:
     #find average change (last price - first price)/month_counter
     average_change = round((last_price - first_price) / (month_counter-1), 2)
     #print all info
-    print(
-        "Financial Analysis", "\n",
-        "-------------------------------","\n",
-        "Total Months: " + str(month_counter),"\n",
-        "Total: $" + str(net_total),"\n",
-        "Average Change: $" + str(average_change),"\n",
-        "Greatest Increase in Profits: " + max_date + " ($"+ str(max_change) + ")","\n",
-        "Greatest Decrease in Profits: " + min_date + " ($"+ str(min_change) + ")","\n",
-    )
+    with open("output.txt", "a") as f:
+        print(
+            "Financial Analysis", "\n",
+            "-------------------------------","\n",
+            "Total Months: " + str(month_counter),"\n",
+            "Total: $" + str(net_total),"\n",
+            "Average Change: $" + str(average_change),"\n",
+            "Greatest Increase in Profits: " + max_date + " ($"+ str(max_change) + ")","\n",
+            "Greatest Decrease in Profits: " + min_date + " ($"+ str(min_change) + ")","\n",
+            file = f
+        )
    
