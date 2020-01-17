@@ -1,6 +1,3 @@
-# 1. Import Flask
-from flask import Flask, jsonify
-
 #import dependencies
 from matplotlib import style
 style.use('fivethirtyeight')
@@ -27,6 +24,9 @@ session = Session(engine)
 # Save references to each table
 Measurement = Base.classes.measurement
 Station = Base.classes.station
+
+# 1. Import Flask
+from flask import Flask, jsonify
 
 # 2. Create an app
 app = Flask(__name__)
@@ -57,13 +57,13 @@ def index():
                 <li>/api/v1.0/(start_date)<br/>
                     <ul>
                         <li>Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start range.</li>
-                        <li>Please enter start_date in yyyy-mm-dd format</li>                    
+                        <li>Please enter start_date in YYYY-MM-DD format.</li>                    
                     </ul>
                 </li><br/>
                 <li>/api/v1.0/(start_date)/(end_date)<br/>
                     <ul>
                         <li>Return a JSON list of the minimum temperature, the average temperature, and the max temperature for a given start-end range.</li>
-                        <li>Please enter start_date and end_date in yyyy-mm-dd format</li>    
+                        <li>Please enter start_date and end_date in YYYY-MM-DD format.</li>    
                     </ul>
                 </li><br/>
             </ol>"""
@@ -80,34 +80,51 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 def stations():
     stations = session.query(Measurement.station).\
-    group_by(Measurement.station).all()
+        group_by(Measurement.station).all()
     stations_list = list(stations)
     return jsonify(stations_list)
 
 @app.route("/api/v1.0/tobs")
 def tobs():
     one_year_ago = dt.date(2017,8,23) - dt.timedelta(days=365)
-    last_year_data = session.query(Measurement.tobs).\
-    filter(func.datetime(Measurement.date) >= one_year_ago ).\
-    filter(Measurement.tobs != 'None').\
-    order_by(func.datetime(Measurement.date)).all()
+        last_year_data = session.query(Measurement.tobs).\
+        filter(func.datetime(Measurement.date) >= one_year_ago ).\
+        filter(Measurement.tobs != 'None').\
+        order_by(func.datetime(Measurement.date)).all()
 
     last_year_data_list = list(last_year_data)
     return jsonify(last_year_data_list)
 
 @app.route("/api/v1.0/<start_date>")
 def start_date(start_date):
+    try:
+        dt.datetime.strptime(start_date, '%Y-%m-%d')
+        if start_date > '2017-08-23' or start_date <'2010-01-01':
+            return f'{start_date} is out of range of the current data base. Please choose a date from "2010-01-01" to "2018-08-23".'
+        start_date_only = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+        filter(Measurement.date >= start_date).all()
+        start_date_only_list = list(start_date_only)
+        return jsonify(start_date_only_list)
+    except ValueError:
+        return jsonify({"error":"Incorrect data format, should be YYYY-MM-DD"}), 404
+    
 
-
-    last_year_data_list = list(last_year_data)
-    return jsonify(last_year_data_list)    
-
-@app.route("/contact")
-def contact():
-    email = "peleke@example.com"
-
-    return f"Questions? Comments? Complaints? Shoot an email to {email}."
-
+@app.route("/api/v1.0/<start_date>/<end_date>")
+def start_end_date(start_date,end_date):
+    try:
+        dt.datetime.strptime(start_date, '%Y-%m-%d')
+        dt.datetime.strptime(end_date, '%Y-%m-%d')
+        if start_date > '2017-08-23' or start_date <'2010-01-01':
+            return f'{start_date} is out of range of the current data base. Please choose a date from "2010-01-01" to "2018-08-23".'
+        elif end_date > '2017-08-23' or end_date <'2010-01-01':
+            return f'{end_date} is out of range of the current data base. Please choose a date from "2010-01-01" to "2018-08-23".'
+        start_end = session.query(func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)).\
+            filter(Measurement.date >= start_date).filter(Measurement.date <= end_date).all()
+        start_end_list = list(start_end)
+        return jsonify(start_end_list)
+    except ValueError:
+        return jsonify({"error":"Incorrect data format, should be YYYY-MM-DD"}), 404
+      
 
 # 4. Define main behavior
 if __name__ == "__main__":
