@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Data-Somm Project</title>
+  <link rel="stylesheet" href="bootstrap.min_sketchy.css">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mx-1">
+    <a class="navbar-brand" href="index.html">Data-Somm</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+          <div class="dropdown-menu" style="">
+            <a class="dropdown-item" href="price_range.html">Price Range of Top 6 Countries</a>
+            <a class="dropdown-item" href="#">Points Range of Top 6 Countrie</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Linear Regression: Price vs. Points</a>
+            <a class="dropdown-item" href="#">Linear Regression: Price vs. Points - By Country</a>
+          </div>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Comparison<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://thejameszheng.com" target="_blank">About Me</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container py-4">
+    <div class="row mb-auto">
+      <div class="col-md-8">
+        <div class="jumbotron">
+          <h1 class="display-4">Does critic points even matter in wine?</h1>
+          <hr class="my-4">
+          <img src="visualizations/5_RegPriceVsPoints_World.png" alt="Linear Regression on Price vs. Points for Top 6 countries" class="img-thumbnail float-left mr-2 mb-1">
+          <p class="lead">We often use scores from renown wine critic such as Robert Parker to evaluate the quality of a wine. When it comes to price, does these scores affect the price? If so, by how much? And is there a variation between different countries?</p>
+          <p>The project is to test the hypothesis that there is a statistically significant relationship between the critic points and price of a particular wine.</p>
+        </div>
+      </div>
+      <div class="col-md-4"> 
+        <div class="card mb-3">
+          <h3 class="card-header">visualizations</h3>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+          </div>
+          <img src="visualizations/2_PriceRangeTop6.png" alt="Card image" class='rounded'>
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+          <div class="card-footer text-muted">
+            2 days ago
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <h3 class="text-center">Thumbnails</h3>
+    <div class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" alt="..." class="img-thumbnail">
+          </div>
+          <div class="caption">
+              <h3>Thumbnail label</h3>
+              <p>...</p>
+              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail">
+              <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" alt="..." class="img-thumbnail">
+            </div>
+          <div class="caption">
+              <h3>Thumbnail label</h3>
+              <p>...</p>
+              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail">
+              <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" alt="..." class="img-thumbnail">
+            </div>
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>...</p>
+                <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+    </div>
+
+  <div class="row">
+    <div class="col">
+        <h3 class="text-center">List Groups</h3>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio <span class="badge badge-pill badge-secondary">10</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio <span class="badge badge-pill badge-secondary">3</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+              Cras justo odio <span class="badge badge-pill badge-secondary">4</span>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Cards</h3>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+  <div class="row">
+    <div class="col">
+      <h3 class="text-center">Nav Tabs</h3>
+      <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Nav Pills</h3>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Alerts</h3>
+        <div class="alert alert-primary" role="alert">
+            Info Alert
+          </div>
+          <div class="alert alert-success" role="alert">
+            Success Alert
+          </div>
+          <div class="alert alert-danger" role="alert">
+            Danger Alert
+          </div>
+          <div class="alert alert-warning" role="alert">
+            Warning Alert
+          </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center">Progress Bar</h3>
+          <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                50%
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <h3 class="text-center">Buttons</h3>
+    <div class="row">
+
+      <button type="button" class="btn btn-default">Default Button</button>
+      <button type="button" class="btn btn-primary">Primary Button</button>
+      <button type="button" class="btn btn-danger">Danger Button</button>
+      <button type="button" class="btn btn-info">Info Button</button>
+      <button type="button" class="btn btn-warning">Warning Button</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
