@@ -1,3 +1,8 @@
-/* .img-thumbnail.float-left.mr-2.mb-1{
-    width:50%;
+/* .thumbnail{        
+    /* width: 300px;  */
+    /* or you could use percentage values for responsive layout */
+    width : 40%;
+    height: 40%;
+    overflow: auto;
+    /* display: inline; */
 } */
