@@ -1,8 +1,11 @@
 /* .thumbnail{        
     /* width: 300px;  */
     /* or you could use percentage values for responsive layout */
-    width : 40%;
-    height: 40%;
+    width : 50%;
+    height: 50%;
     overflow: auto;
     /* display: inline; */
+} */
+/* .border{
+    color:purple;
 } */
