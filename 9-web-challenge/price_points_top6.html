@@ -24,19 +24,19 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
-          <div class="dropdown-menu" style="">
+          <div class="dropdown-menu dropdown-menu-right" style="">
             <a class="dropdown-item" href="price_range.html">Price Range of Top 6 Countries</a>
-            <a class="dropdown-item" href="#">Points Range of Top 6 Countrie</a>
+            <a class="dropdown-item" href="points_range.html">Points Range of Top 6 Countries</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Linear Regression: Price vs. Points</a>
-            <a class="dropdown-item" href="#">Linear Regression: Price vs. Points - By Country</a>
+            <a class="dropdown-item" href="price_points_world.html">Linear Regression: Price vs. Points - World</a>
+            <a class="dropdown-item" href="price_points_top6.html">Linear Regression: Price vs. Points - Top 6 Countries </a>
           </div>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Comparison<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="comparison.html">Comparison<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Data</a>
+          <a class="nav-link" href="data.html">Data</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="http://thejameszheng.com" target="_blank">About Me</a>
@@ -46,48 +46,53 @@
   </nav>
 
 
-  <div class="container py-4">
+  <div class="container-fluid py-4">
     <div class="row mb-auto">
       <div class="col-md-8">
         <div class="jumbotron">
-          <h1 class="display-4">Does critic points even matter in wine?</h1>
+          <h2>Which country has the best value than?</h2>
           <hr class="my-4">
-          <img src="visualizations/5_RegPriceVsPoints_World.png" alt="Linear Regression on Price vs. Points for Top 6 countries" class="img-thumbnail float-left mr-2 mb-1">
-          <p class="lead">We often use scores from renown wine critic such as Robert Parker to evaluate the quality of a wine. When it comes to price, does these scores affect the price? If so, by how much? And is there a variation between different countries?</p>
-          <p>The project is to test the hypothesis that there is a statistically significant relationship between the critic points and price of a particular wine.</p>
+          <img src="visualizations/7_RegPriceVsPoints_Top6_withlegend.png" alt="Linear Regression: Price vs. Points - Top 6 Countries" class="img-fluid d-block my-2 mx-2 rounded">
+          <p class="lead">Chile! It has the lowest increase in price compared to the same amount of increase in points.</p>
+          <p>Scatter plots represent the average price at each critic point (80-100) while the dotted red line is a linear regression line of price vs. points for top 6 countries. The various lines represent different countries with a different slope. The steeper the slope, the more the price of the wine is influenced by the critic points.</p>
         </div>
       </div>
       <div class="col-md-4"> 
         <div class="card mb-3">
-          <h3 class="card-header">Visualizations</h3>   
+          <h3 class="card-header">Visualizations</h3>
+            
           <div class="thumbnail mx-2 my-2">
             <a href="price_range.html">
               <img src="visualizations/2_PriceRangeTop6.png" alt="Price Range - Top 6 Countries" class='rounded img-thumbnail'>
             </a>      
           </div>
+          
           <div class="thumbnail mx-2 my-2">
             <a href="points_range.html">
               <img src="visualizations/3_PointRangeTop6.png" alt="Points Range - Top 6 Countries" class='rounded img-thumbnail d-inline'>
             </a>
-          </div>  
+          </div> 
           <div class="thumbnail mx-2 my-2">
             <a href="price_points_world.html">
               <img src="visualizations/5_RegPriceVsPoints_World.png" alt="Pirce vs. Points - World" class='rounded img-thumbnail d-inline'>
             </a>
-          </div> 
-          <div class="thumbnail mx-2 my-2">
-            <a href="price_points_top6.html">
-              <img src="visualizations/7_RegPriceVsPoints_Top6_withlegend.png" alt="Pirce vs. Points - Top 6 Countries" class='rounded img-thumbnail'>  
-            </a>
           </div>
+          <span class="border border-info rounded mx-1 my-1">
+            <div class="thumbnail mx-2 my-2">
+              <a href="price_points_top6.html">
+                <img src="visualizations/7_RegPriceVsPoints_Top6_withlegend.png" alt="Pirce vs. Points - Top 6 Countries" class='rounded img-thumbnail'>  
+              </a>
+            </div>
+          </span>
+          
+
           <div class="card-footer text-muted">
-            <a href="#" class="card-link">Click to view comparison plots</a>
+            <a href="comparison.html" class="card-link">Click to view comparison plots</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </body>
 
 </html>
