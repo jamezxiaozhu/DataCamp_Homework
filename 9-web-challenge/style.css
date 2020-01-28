@@ -1,11 +1,18 @@
-/* .thumbnail{        
-    /* width: 300px;  */
-    /* or you could use percentage values for responsive layout */
-    width : 50%;
-    height: 50%;
-    overflow: auto;
-    /* display: inline; */
-} */
-/* .border{
-    color:purple;
-} */
+@media (max-width: 480px) {
+    .navbar li {
+      padding: 10px;
+    }
+  
+    .post {
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+  
+    .navbar ul {
+      visibility: hidden;
+    }
+  
+    #nav-select {
+      visibility: visible;
+    }
+  }
