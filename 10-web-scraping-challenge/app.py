@@ -24,8 +24,10 @@ def index():
 @app.route("/scrape")
 def scrape():
     from scrape_mars import scrape
-    scrape()
-    final_scrape_output
-    
+    scrape_output ={}
+    scrape_output = scrape(x)
+    return scrape_output
+    collection.insert_one(scrape_output)
+
 if __name__ == "__main__":
     app.run(debug=True)

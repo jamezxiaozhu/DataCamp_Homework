@@ -9,7 +9,7 @@ import pandas as pd
 
 
 # # Begin scrape_mars.py
-def scrape():
+def scrape(final_scrape_output):
     final_scrape_output = {}
     # # Nasa Mars News
 
