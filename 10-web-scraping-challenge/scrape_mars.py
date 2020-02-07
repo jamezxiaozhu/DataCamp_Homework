@@ -9,7 +9,7 @@ import pandas as pd
 
 
 # # Begin scrape_mars.py
-def scrape(final_scrape_output):
+def scrape():
     final_scrape_output = {}
     # # Nasa Mars News
 
@@ -47,6 +47,7 @@ def scrape(final_scrape_output):
     url_img = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url_img)
 
+    time.sleep(1)
 
     try:
         browser.select('category', 'featured')
@@ -149,6 +150,8 @@ def scrape(final_scrape_output):
     final_scrape_output.update(
         {'hemisphere_image_urls': hemisphere_image_urls}
     )
+    # Close the browser after scraping
+    browser.quit()
 
     return final_scrape_output
 # # END scrap_mars.py
