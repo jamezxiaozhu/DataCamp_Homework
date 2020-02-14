@@ -1,0 +1,5 @@
+body {
+    background-image: url("../images/nasa.jpg");
+    height: 0;
+    background-size: cover;
+   }
