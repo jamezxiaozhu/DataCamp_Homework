@@ -12,17 +12,35 @@ button.on("click", function() {
     tbody.html("");
 
     // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
+    var inputElementDate = d3.select("#datetime");
+    var inputElementCity = d3.select("#city");
   
     // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    var inputValueDate = inputElementDate.property("value");
+    var inputValueCity = inputElementCity.property("value");
   
-    console.log(inputValue);
+    console.log(inputValueDate);
+    console.log(inputValueCity);
+    
     console.log(sightings);
-    console.log(typeof inputValue);
-
-    var filteredData = sightings.filter(sighting => Date.parse(sighting.datetime) === Date.parse(inputValue));
-  
+    // console.log(typeof inputValue);
+    if (inputValueDate != "" && inputValueCity != ""){
+        var filteredData = sightings.filter(
+            sighting => 
+                Date.parse(sighting.datetime) === Date.parse(inputValueDate) &&
+                sighting.city.toLowerCase() === inputValueCity.toLowerCase()
+            );
+    } else if (inputValueDate == "") {
+        var filteredData = sightings.filter(
+            sighting => 
+                sighting.city.toLowerCase() === inputValueCity.toLowerCase()
+            );
+    } else if (inputValueCity == "") {
+        var filteredData = sightings.filter(
+            sighting => 
+                Date.parse(sighting.datetime) === Date.parse(inputValueDate) 
+            );
+    }
     console.log(filteredData);
 
     //get info from dataset and turn into table
